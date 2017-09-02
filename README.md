@@ -35,3 +35,7 @@ Dado que quero criar um evento
 Quando informar uma data inferior ao do dia atual e salvar  
 Então não deve permitir salvar e informar a mensagem:  
 "A data do evento deve ser igual ou maior que a de hoje"  
+
+
+#Tips&Tricks  
+. Right-click on your project --> Configure --> Add Gradle Nature.
