@@ -1,4 +1,4 @@
-package rs.br.com.dudoguinho.meuevento.meuevento;
+package rs.br.com.dudoguinho.meuevento.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

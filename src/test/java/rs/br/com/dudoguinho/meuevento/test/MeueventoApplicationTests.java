@@ -1,4 +1,4 @@
-package rs.br.com.dudoguinho.meuevento.meuevento;
+package rs.br.com.dudoguinho.meuevento.test;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
