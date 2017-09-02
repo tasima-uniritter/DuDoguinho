@@ -16,12 +16,11 @@
 # TARGET  
 . User story  
 
-. Historia:  
+. Primeira solicitação  
 Como gestor de eventos  
 Quero ter a possibilidade de criar eventos  
-Para que meus clientes tenham conhecimento de eventos e suas datas  
+Para que meus clientes tenham conhecimento de eventos e suas datas. Critérios:  
 
-. Critérios  
 > 1  
 Dado que quero criar um evento  
 Quando  carregar o formulário  
@@ -47,3 +46,5 @@ Dado que quero criar um evento
 Quando informar uma data inferior ao do dia atual e salvar  
 Então não deve permitir salvar e informar a mensagem:  
 "A data do evento deve ser igual ou maior que a de hoje"  
+
+. Segunda solicitação  
