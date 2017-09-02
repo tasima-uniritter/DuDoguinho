@@ -24,17 +24,20 @@ public class EventController {
 	    return "Aqui !";
 	}
 	 
-	 @GetMapping(value="/{nome}")
-	 public ResponseEntity<EventDto> getEventoByNome(@RequestParam("nome") String nome) {
-		 EventDto dto = new EventDto();
-		 dto.setNome("Rick é demais2");
-		 dto.setData(LocalDate.now());
-		 return new ResponseEntity<EventDto>(dto, HttpStatus.OK);
-	 }
+	@GetMapping(value="/{nome}")
+	public ResponseEntity<EventDto> getEventoByNome(@RequestParam("nome") String nome) {
+		EventDto dto = new EventDto();
+		dto.setNome("Rick é demais2");
+		dto.setData(LocalDate.now());
+		return new ResponseEntity<EventDto>(dto, HttpStatus.OK);
+	}
+	
+	public ResponseEntity<EventDto> getEventos() {
+		EventDto dto = new EventDto();
+		return new ResponseEntity<EventDto>(dto, HttpStatus.OK);
+	}
 
-	 public void updateEventoByNome(){}
-	  
-	 public void saveEvento(){}
-	 
-	 public void deleteEvento(){}
+	public void updateEventoByNome(){}
+	public void saveEvento(){}
+	public void deleteEvento(){}
 }
