@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import rs.br.com.dudoguinho.myevent.dto.EventDto;
 
-@RestController("/evento")
+@RestController("/event")
 public class EventController {
 	
 	  @GetMapping(value="/{nome}")
