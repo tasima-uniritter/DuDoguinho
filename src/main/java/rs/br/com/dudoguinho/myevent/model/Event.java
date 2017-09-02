@@ -10,6 +10,8 @@ import lombok.ToString;
 @EqualsAndHashCode @ToString
 @Getter @Setter
 public class Event {
+	
+	Long id;
 	String nome;
 	LocalDate data;
 }
