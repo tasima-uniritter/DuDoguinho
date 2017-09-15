@@ -10,9 +10,12 @@ import lombok.Setter;
 import lombok.ToString;
 
 @XmlRootElement
-@EqualsAndHashCode @ToString
-@Getter @Setter
+@EqualsAndHashCode
+@ToString
+@Getter 
+@Setter
 public class EventDto {
-	String nome;
-	LocalDate data;
+	private Long id;
+	private String name;
+	private LocalDate date;
 }

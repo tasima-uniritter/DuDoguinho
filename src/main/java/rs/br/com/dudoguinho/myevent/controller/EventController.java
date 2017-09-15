@@ -26,8 +26,8 @@ public class EventController {
 	@GetMapping("/{nome}")
 	public ResponseEntity<EventDto> getEventoByNome(@PathVariable	("nome") String nome) {
 		EventDto dto = new EventDto();
-		dto.setNome("Rick é demais2");
-		dto.setData(LocalDate.now());
+		dto.setName("Rick é demais2");
+		dto.setDate(LocalDate.now());
 		return new ResponseEntity<EventDto>(dto, HttpStatus.OK);
 	}
 	
