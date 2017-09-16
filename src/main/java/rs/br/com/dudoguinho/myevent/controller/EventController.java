@@ -1,55 +1,74 @@
 package rs.br.com.dudoguinho.myevent.controller;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import rs.br.com.dudoguinho.myevent.dto.EventDto;
-import rs.br.com.dudoguinho.myevent.model.Event;
+import rs.br.com.dudoguinho.myevent.service.Impl.EventServiceImpl;
 
 @RestController
 public class EventController {
 	
 	private static Logger log = LoggerFactory.getLogger(EventController.class);
 	
-	@RequestMapping(value = "/event/", method = RequestMethod.GET)
+	@Autowired EventServiceImpl service;
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
 		log.info("Event Controller");
 	    return "Aqui !";
 	}
 	 
+	@RequestMapping(value = "/event/", method = RequestMethod.GET)
+	public ResponseEntity<List<EventDto>> getEvents() {
+		//service.findAllEvents();
+		List<EventDto> events = null; 
+		return new ResponseEntity<List<EventDto>>(events, HttpStatus.OK);
+	}
+	
 	@RequestMapping(value = "/event/{nome}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<EventDto> getEventoByNome(@PathVariable ("nome") String nome) {
+	public ResponseEntity<EventDto> getEventByName(@PathVariable ("nome") String nome) {
 		EventDto dto = new EventDto();
 		dto.setName("Rick é demais2");
 		dto.setDate(LocalDate.now());
+
+		//service.findEvent(eventDto);
+		
 		return new ResponseEntity<EventDto>(dto, HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/event/", method = RequestMethod.POST)
+	public ResponseEntity<Void> saveEvent(@RequestBody EventDto eventDto, UriComponentsBuilder ucBuilder) {
+        //service.createEvent(eventDto);
+        
+		HttpHeaders headers = new HttpHeaders();
+        headers.setLocation(ucBuilder.path("/event/{nome}").buildAndExpand(eventDto.getName()).toUri());
+        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 	}
 	
-	public ResponseEntity<EventDto> getEventos() {
-		EventDto dto = new EventDto();
-		return new ResponseEntity<EventDto>(dto, HttpStatus.OK);
-	}
-
-	@PostMapping(value = "/saveEvent")
-	public ResponseEntity<EventDto> saveEvento(@RequestBody EventDto eventDto) {
-		Event eventEntity = new Event();
-		eventDto.setId(eventEntity.getId());
-
+	@RequestMapping(value = "/event/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<EventDto> updateEventByNome(@PathVariable("id") long id, @RequestBody EventDto eventDto){
+		//service.updateEvent(eventDto);
 		return new ResponseEntity<EventDto>(eventDto, HttpStatus.OK);
 	}
 	
-	public void updateEventoByNome(){}
-	public void saveEvento(){}
-	public void deleteEvento(){}
+	@RequestMapping(value = "/event/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<EventDto> deleteEvent(@PathVariable("id") long id) {
+		//service.deleteEvent(eventDto);
+		return new ResponseEntity<EventDto>(HttpStatus.NO_CONTENT);
+	}
 }

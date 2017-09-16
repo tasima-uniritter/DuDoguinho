@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @EnableAutoConfiguration
-@ComponentScan("rs.br.com.dudoguinho")
+@ComponentScan("rs.br.com.dudoguinho.myevent")
 @SpringBootApplication
 public class MyEventApplication {
 
