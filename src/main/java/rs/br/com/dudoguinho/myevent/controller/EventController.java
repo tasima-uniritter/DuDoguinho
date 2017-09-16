@@ -35,8 +35,8 @@ public class EventController {
 		return new ResponseEntity<List<EventDto>>(eventos, HttpStatus.OK);
 	}
 	 
-	@RequestMapping(value = "/event/{nome}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<EventDto> getEventoByName(@PathVariable ("name") String name) {
+	@RequestMapping(value = "/event/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<EventDto> getEventByName(@PathVariable ("name") String name) {
 		log.info("GET ONE");
 		EventDto dto = new EventDto();
 		dto.setName("Rick é demais2");
@@ -53,7 +53,7 @@ public class EventController {
         //service.createEvent(eventDto);
         
 		HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/event/{nome}").buildAndExpand(eventDto.getName()).toUri());
+        headers.setLocation(ucBuilder.path("/event/{name}").buildAndExpand(eventDto.getName()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 	}
 	
