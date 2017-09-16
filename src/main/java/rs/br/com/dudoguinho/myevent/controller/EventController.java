@@ -8,11 +8,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import rs.br.com.dudoguinho.myevent.dto.EventDto;
+import rs.br.com.dudoguinho.myevent.model.Event;
 
 @RestController
 public class EventController {
@@ -38,6 +41,14 @@ public class EventController {
 		return new ResponseEntity<EventDto>(dto, HttpStatus.OK);
 	}
 
+	@PostMapping(value = "/saveEvent")
+	public ResponseEntity<EventDto> saveEvento(@RequestBody EventDto eventDto) {
+		Event eventEntity = new Event();
+		eventDto.setId(eventEntity.getId());
+
+		return new ResponseEntity<EventDto>(eventDto, HttpStatus.OK);
+	}
+	
 	public void updateEventoByNome(){}
 	public void saveEvento(){}
 	public void deleteEvento(){}
