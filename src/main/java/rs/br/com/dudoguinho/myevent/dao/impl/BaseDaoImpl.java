@@ -1,5 +1,6 @@
 package rs.br.com.dudoguinho.myevent.dao.impl;
 
+import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import rs.br.com.dudoguinho.myevent.dao.BaseDao;
