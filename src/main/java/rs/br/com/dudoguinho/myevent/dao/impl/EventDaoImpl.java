@@ -4,12 +4,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import rs.br.com.dudoguinho.myevent.dao.BaseDao;
 import rs.br.com.dudoguinho.myevent.dao.EventDao;
 import rs.br.com.dudoguinho.myevent.model.Event;
 
 @Repository
-public class EventDaoImpl extends BaseDao<Event> implements EventDao {
+public class EventDaoImpl extends BaseDaoImpl<Event> implements EventDao {
 
 	@Override
 	public List<Event> getListEntity() {

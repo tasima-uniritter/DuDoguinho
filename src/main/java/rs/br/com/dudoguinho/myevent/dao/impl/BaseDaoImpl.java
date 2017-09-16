@@ -1,12 +1,12 @@
 package rs.br.com.dudoguinho.myevent.dao.impl;
 
-import java.util.List;
+import javax.persistence.PersistenceContext;
 
-public interface BaseDaoImpl<T> {
+import rs.br.com.dudoguinho.myevent.dao.BaseDao;
+
+public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 	
-	List<T> getListEntity();
-	T getEntityById(Long id);
-	void removeEntity(T entity);
-	T updateEntity(T entity);
-
+	@PersistenceContext
+    private EntityManager entityManager;
+	
 }
