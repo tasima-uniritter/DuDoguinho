@@ -28,14 +28,16 @@ public class EventController {
 	@Autowired
 	private EventServiceImpl service;
 	
-	@RequestMapping(value = "events", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<EventDto>> getEventos() {
+	@RequestMapping(value = "/event/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<EventDto>> getEvents() {
+		log.info("GET ALL");
 		List<EventDto> eventos = service.getEventos();
 		return new ResponseEntity<List<EventDto>>(eventos, HttpStatus.OK);
 	}
 	 
-	@RequestMapping(value = "event/{nome}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<EventDto> getEventoByNome(@PathVariable ("nome") String nome) {
+	@RequestMapping(value = "/event/{nome}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<EventDto> getEventoByName(@PathVariable ("name") String name) {
+		log.info("GET ONE");
 		EventDto dto = new EventDto();
 		dto.setName("Rick é demais2");
 		dto.setDate(LocalDate.now());
@@ -47,6 +49,7 @@ public class EventController {
 	
 	@RequestMapping(value = "/event/", method = RequestMethod.POST)
 	public ResponseEntity<Void> saveEvent(@RequestBody EventDto eventDto, UriComponentsBuilder ucBuilder) {
+		log.info("SAVE");
         //service.createEvent(eventDto);
         
 		HttpHeaders headers = new HttpHeaders();
@@ -56,12 +59,14 @@ public class EventController {
 	
 	@RequestMapping(value = "/event/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<EventDto> updateEventByNome(@PathVariable("id") long id, @RequestBody EventDto eventDto){
+		log.info("UPDATE");
 		//service.updateEvent(eventDto);
 		return new ResponseEntity<EventDto>(eventDto, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/event/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<EventDto> deleteEvent(@PathVariable("id") long id) {
+		log.info("DELETE");
 		//service.deleteEvent(eventDto);
 		return new ResponseEntity<EventDto>(HttpStatus.NO_CONTENT);
 	}
