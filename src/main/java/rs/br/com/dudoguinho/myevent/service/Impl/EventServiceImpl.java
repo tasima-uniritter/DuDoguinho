@@ -31,21 +31,27 @@ public class EventServiceImpl implements EventService {
 	@Override
 	public List<EventDto> getEventos() {
 		List<Event> eventosEntity = repository.getListEntity();
-		List<EventDto> eventosDto = convertEventEntityToDto(eventosEntity);
+		List<EventDto> eventosDto = convertListEventEntityToListEventDto(eventosEntity);
 		return eventosDto;
 	}
 	
-	private List<EventDto> convertEventEntityToDto(final List<Event> eventosEntity) {
+	private List<EventDto> convertListEventEntityToListEventDto(final List<Event> eventosEntity) {
 		List<EventDto> eventosDto = new ArrayList<EventDto>();
 		for (Event event : eventosEntity) {
-			EventDto eventoDto = new EventDto();
-			eventoDto.setId(event.getId());
-			eventoDto.setName(event.getName());
-			eventoDto.setDate(event.getDate());
+			EventDto eventoDto = convertEventEntityToEventDto(event);
 			eventosDto.add(eventoDto);
 		}
 		
 		return eventosDto;
+	}
+	
+	private EventDto convertEventEntityToEventDto(final Event eventEntity) {
+		EventDto eventoDto = new EventDto();
+		eventoDto.setId(eventEntity.getId());
+		eventoDto.setName(eventEntity.getName());
+		eventoDto.setDate(eventEntity.getDate());
+		
+		return eventoDto;
 	}
 	
 	
