@@ -28,7 +28,7 @@ public class EventController {
 	@Autowired
 	private EventServiceImpl service;
 	
-	@RequestMapping(value = "/event/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/events/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<EventDto>> getEvents() {
 		log.info("GET ALL");
 		List<EventDto> eventos = service.getEventos();
