@@ -1,5 +1,7 @@
 package rs.br.com.dudoguinho.myevent.dao.impl;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -12,8 +14,17 @@ public class EventDaoImpl extends BaseDaoImpl<Event> implements EventDao {
 
 	@Override
 	public List<Event> getListEntity() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Event> eventos = new ArrayList<Event>();
+		Event event = null;
+		for (int i = 0; i < 5; i++) {
+			event = new Event();
+			event.setName("Evento " + i);
+			event.setDate(LocalDate.now());
+			event.setId(Long.valueOf(i));
+			eventos.add(event);
+		}
+		
+		return eventos;
 	}
 
 	@Override
