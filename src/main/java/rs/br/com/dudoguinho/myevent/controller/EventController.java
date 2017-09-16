@@ -51,4 +51,6 @@ public class EventController {
 		return new ResponseEntity<EventDto>(eventDto, HttpStatus.OK);
 	}
 
+	public void deleteEvento() {
+	}
 }
