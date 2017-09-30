@@ -43,7 +43,7 @@ public class EventRest {
 	public ResponseEntity<List<EventDto>> getEvents() {
 		log.info("GET ALL");
 		List<EventDto> eventos = service.getEventos();
-		return new ResponseEntity<List<EventDto>>(eventos, HttpStatus.OK);
+		return new ResponseEntity<>(eventos, HttpStatus.OK);
 	}
 	 
 	@RequestMapping(value = "/event/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -91,7 +91,7 @@ public class EventRest {
 	public ResponseEntity<EventDto> updateEventByNome(@RequestBody EventDto eventDto){
 		log.info("UPDATE");
 		service.save(eventDto);
-		return new ResponseEntity<EventDto>(eventDto, HttpStatus.OK);
+		return new ResponseEntity<>(eventDto, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/event/{id}", method = RequestMethod.DELETE)
@@ -108,6 +108,6 @@ public class EventRest {
 	public ResponseEntity<EventDto> deleteEvent(@PathVariable("id") long id) {
 		log.info("DELETE");
 		service.deleteEvent(id);
-		return new ResponseEntity<EventDto>(HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }
