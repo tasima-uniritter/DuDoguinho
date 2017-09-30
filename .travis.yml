@@ -7,7 +7,7 @@ before_install:
 script: ./gradlew clean build --refresh-dependencies
 addons:
   sonarcloud:
-    organization: "tasima-uniritter"
+    organization: "tasima-uniritter:DuDoguinho"
     token:
       secure: 89bf008ccf33a14e416a76ff3da2952aa63a67ce
 script:  

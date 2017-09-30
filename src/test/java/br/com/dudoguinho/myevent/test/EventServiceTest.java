@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,7 @@ public class EventServiceTest {
 	
 	@Test
 	@Transactional
+	@Ignore
 	public void testEvent() {
 		
 		LocalDate eventDate = LocalDate.of(2017, 10, 1);
