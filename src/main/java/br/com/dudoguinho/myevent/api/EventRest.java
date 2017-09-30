@@ -48,9 +48,6 @@ public class EventRest {
 	 
 	@RequestMapping(value = "/event/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ApiOperation(value = "Busca o evento cadastrado a partir do nome")
-	@ApiImplicitParams({
-		@ApiImplicitParam(name = "nome", required = false, dataType = "String", paramType = "path", value = "Nome do evento"),
-	})
     @ApiResponses(value = { 
             @ApiResponse(code = 200, message = "Success", response = EventDto.class),
             @ApiResponse(code = 401, message = "Unauthorized"),
@@ -80,7 +77,7 @@ public class EventRest {
         return ResponseEntity.accepted().body("Evento salvo com sucesso.");
 	}
 	
-	@RequestMapping(value = "/event/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/event/", method = RequestMethod.PUT)
 	@ApiOperation(value = "Salva um evento")
 	@ApiImplicitParams({
 		@ApiImplicitParam(name = "eventDto", required = false, dataType = "EventDto", paramType = "body", value = "Nome do evento"),
@@ -111,6 +108,6 @@ public class EventRest {
 	public ResponseEntity<EventDto> deleteEvent(@PathVariable("id") long id) {
 		log.info("DELETE");
 		service.deleteEvent(id);
-		return new ResponseEntity<EventDto>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<EventDto>(HttpStatus.OK);
 	}
 }
