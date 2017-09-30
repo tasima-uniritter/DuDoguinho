@@ -1,11 +1,10 @@
-package br.com.dudoguinho.myevent.test;
+package br.com.dudoguinho.myevent.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.time.LocalDate;
 import java.util.List;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +13,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.dudoguinho.myevent.converters.EventConverter;
-import br.com.dudoguinho.myevent.model.Event;
-import br.com.dudoguinho.myevent.service.EventService;
 import br.com.dudoguinho.myevent.dto.EventDto;
+import br.com.dudoguinho.myevent.model.Event;
+import br.com.dudoguinho.myevent.app.MyEventApplication;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes={MyEventApplication.class})
 public class EventServiceTest {
 	
 	@Autowired
@@ -30,7 +29,6 @@ public class EventServiceTest {
 	
 	@Test
 	@Transactional
-	@Ignore
 	public void testEvent() {
 		
 		LocalDate eventDate = LocalDate.of(2017, 10, 1);
