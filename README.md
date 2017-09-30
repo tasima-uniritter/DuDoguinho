@@ -1,4 +1,5 @@
 "# meuEvento"
+# Grupo - Vinicius, Richard, Gian e Eduardo Gouvea
 
 # TECs
 . Git  
@@ -16,35 +17,35 @@
 # TARGET  
 . User story  
 
-. Primeira solicitação  
+. Primeira solicitaÃ§Ã£o  
 Como gestor de eventos  
 Quero ter a possibilidade de criar eventos  
-Para que meus clientes tenham conhecimento de eventos e suas datas. Critérios:  
+Para que meus clientes tenham conhecimento de eventos e suas datas. CritÃ©rios:  
 
 > 1  
 Dado que quero criar um evento  
-Quando  carregar o formulário  
-Então deve apresentar os seguintes campos:  
+Quando  carregar o formulÃ¡rio  
+EntÃ£o deve apresentar os seguintes campos:  
 *Nome  
 *Data do evento  
 
 > 2  
 Dado que quero criar um evento  
 Quando salvar o evento  
-Então os campos abaixo devem ser obrigatórios:  
+EntÃ£o os campos abaixo devem ser obrigatÃ³rios:  
 *Nome  
 *Data do evento   
   
 > 3  
 Dado que quero criar um evento  
 Quando informar um nome maior que 150 caracteres e salvar  
-Então não deve permitir salvar e informar a mensagem:  
-"O nome permite no máximo 150 caracteres"  
+EntÃ£o nÃ£o deve permitir salvar e informar a mensagem:  
+"O nome permite no mÃ¡ximo 150 caracteres"  
 
 > 4  
 Dado que quero criar um evento  
 Quando informar uma data inferior ao do dia atual e salvar  
-Então não deve permitir salvar e informar a mensagem:  
+EntÃ£o nÃ£o deve permitir salvar e informar a mensagem:  
 "A data do evento deve ser igual ou maior que a de hoje"  
 
-. Segunda solicitação  
+. Segunda solicitaÃ§Ã£o  
