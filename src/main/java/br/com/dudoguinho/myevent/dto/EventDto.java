@@ -1,6 +1,5 @@
 package br.com.dudoguinho.myevent.dto;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -8,8 +7,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
-public class EventDto implements Serializable {
-	private static final long serialVersionUID = 5410374566336501811L;
+public class EventDto  {
 	private Long id;
 	private String name;
 	
