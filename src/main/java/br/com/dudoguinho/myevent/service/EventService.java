@@ -27,9 +27,10 @@ public class EventService {
 		return converter.convertListEventEntityToListEventDto(events);
 	}
 	
-	public void save(EventDto event) {
+	public EventDto save(EventDto event) {
 		log.info("Saving entity "+ event);
-		eventRepository.save(converter.convertEventDtoToEventEntity(event));
+		EventDto eventCriado = converter.convertEventEntityToEventDto(eventRepository.save(converter.convertEventDtoToEventEntity(event)));
+		return eventCriado;
 	}
 	
 	public void findById(Long id) {
